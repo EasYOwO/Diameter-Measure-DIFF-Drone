@@ -1,0 +1,25 @@
+# Nominal profile: Kai Lap JAL-KA4-OV2640, EFL 3.6 mm, view angle 66.4 degrees.
+# FOV axis is unspecified; do not derive fx from 66.4 degrees.
+# Actual camera_intrinsics.json takes priority over this nominal estimate.
+
+camera:
+  name: ESP32-S3-CAM OV2640
+  sensor_width: 1600
+  sensor_height: 1200
+  pixel_size_mm: 0.0022
+  optical_format: "1/4 inch"
+  focal_length_mm: 3.6
+  allow_nominal_focal_estimate: true
+  focal_source: "Kai Lap JAL-KA4-OV2640 nominal 66.4-degree lens specification; actual lens not calibrated"
+  focal_source_url: "https://kailaptech.net/KLT/EN/PDF/JAL-KA4-OV2640%20OmniVision%20OV2640%20DVP%20Parallel%20Interface%20Fixed%20Focus%202MP%20Camera%20Module.pdf"
+
+# Distance is lens-to-front-surface distance, not tree diameter or centre distance.
+# Null uses object<ID>_<N>mm filenames, then asks in interactive single-image mode.
+distance_mm: null
+
+# Reuse a known-diameter mm/pixel calibration only when the capture distance is unchanged.
+use_saved_calibration: false  # CLI requires --fixed-scale to explicitly reuse the old fixed-distance scale
+threshold_inches: 5.0  # Strictly > 127 mm passes; exactly 127 mm does not pass.
+
+drive:
+  page_size: 20

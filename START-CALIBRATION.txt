@@ -1,0 +1,18 @@
+Actual lens calibration (optional but recommended for physical measurements)
+
+1. Run setup.cmd.
+2. Run .venv\Scripts\python.exe create_calibration_pattern.py.
+3. Print output/pdf/OV2640-calibration-checkerboard-A4.pdf on A4 at 100%.
+4. Verify the 100 mm check line with a ruler and mount the target flat.
+5. Take 20-25 varied sharp original photographs using the actual ESP camera.
+6. Keep the same resolution, lens focus and camera mode used for measurement.
+7. Place the photos in calibration_images/.
+8. Run .venv\Scripts\python.exe calibrate_camera.py --images calibration_images --model pinhole
+9. Inspect calibration_corner_checks and validate with known cylinders at several distances.
+10. Run run.cmd --image "C:\Photos\object1_1000mm.jpg" --require-calibration
+
+The filename distance is shooting distance, not diameter. Each measurement
+needs valid distance to the same target at capture time. The lens and range
+sensor front surfaces may have an offset; account for it in the supplied distance.
+Nominal 3.6 mm estimates remain available without a real calibration, clearly labelled.
+No actual-lens calibration or real-tree accuracy is claimed by synthetic tests.
